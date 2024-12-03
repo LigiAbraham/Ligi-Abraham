@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DevelopersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/unserialize-data', [DevelopersController::class, 'unserializeLoad'])->name('repair.serialize');
+Route::post('/unserialize-data', [DevelopersController::class, 'unserializeFix'])->name('repair.fix');
+
